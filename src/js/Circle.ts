@@ -9,9 +9,9 @@ export default class Circle{
 
   constructor(radius: number, mass?: number){
     this.acceleration = new Delta;
-    this.color = '#' + Math.round(((radius - 15) /10) * 255).toString(16) + '0000';
+    this.color = '#' + Math.round(((radius - 15) / 10) * 255).toString(16) + '0000';
     this.radius = radius;
-    this.mass = mass || 4/3 * Math.PI * radius ** 3; // Volume of a sphere
+    this.mass = mass || Math.PI * radius ** 2; // Area of a circle
     this.velocity = new Delta;
   }
 }
