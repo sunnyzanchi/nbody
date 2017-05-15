@@ -1,13 +1,15 @@
-import Vector from './Vector';
+import Delta from './Delta';
 
 export default class Circle{
-  acceleration: Vector;
+  acceleration: Delta;
+  color: string;
   radius: number;
-  velocity: Vector;
+  velocity: Delta;
 
   constructor(radius: number){
-    this.acceleration = new Vector();
+    this.acceleration = new Delta;
+    this.color = '#' + Math.round(((radius - 15) /10) * 255).toString(16) + '0000';
     this.radius = radius;
-    this.velocity = new Vector();
+    this.velocity = new Delta;
   }
 }
