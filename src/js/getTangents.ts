@@ -1,6 +1,12 @@
 // https://en.wikipedia.org/wiki/Tangent_lines_to_circles#Outer_tangent
 
-export default function getTangentPoints(c1, c2){
+interface CircleConfig{
+  x: number;
+  y: number;
+  radius: number;
+}
+
+export default function getTangentPoints(c1: CircleConfig, c2: CircleConfig){
   const {atan, asin, cos, PI, sin, sqrt} = Math;
 
   // probably a better (more mathematical) way than just swapping the circles
