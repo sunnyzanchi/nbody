@@ -6,12 +6,25 @@ export default class Circle{
   mass: number;
   radius: number;
   velocity: Delta;
+  x: number;
+  y: number;
 
-  constructor(radius: number, mass?: number){
-    this.acceleration = new Delta;
-    this.color = '#' + Math.round(((radius - 15) / 10) * 255).toString(16) + '0000';
-    this.radius = radius;
-    this.mass = mass || Math.PI * radius ** 2; // Area of a circle
-    this.velocity = new Delta;
+  constructor({
+    acceleration = new Delta,
+    color,
+    mass,
+    radius,
+    velocity = new Delta,
+    x = 0,
+    y = 0
+  }){
+    this.acceleration = acceleration;
+    this.radius = radius || Math.random() * 20 + 5;
+    this.color = color || '#' + Math.round(((this.radius - 15) / 10) * 255).toString(16) + '0000';
+    // Area of a circle
+    this.mass = mass || Math.PI * this.radius ** 2;
+    this.velocity = velocity;
+    this.x = x;
+    this.y = y;
   }
 }
