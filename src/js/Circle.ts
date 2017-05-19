@@ -17,6 +17,14 @@ export default class Circle{
     velocity = new Delta,
     x = 0,
     y = 0
+  }: {
+    acceleration?: Delta,
+    color?: string,
+    mass?: number,
+    radius?: number,
+    velocity?: Delta,
+    x?: number,
+    y?: number
   }){
     this.acceleration = acceleration;
     this.radius = radius || Math.random() * 20 + 5;
