@@ -10,8 +10,8 @@ export default function getTangentPoints(c1: CircleConfig, c2: CircleConfig){
   const {atan, asin, cos, PI, sin, sqrt} = Math;
 
   // probably a better (more mathematical) way than just swapping the circles
-  var sc1;
-  var sc2;
+  var sc1: CircleConfig;
+  var sc2: CircleConfig;
   if(c1.x > c2.x){
     sc1 = c2;
     sc2 = c1
