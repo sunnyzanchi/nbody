@@ -5,8 +5,11 @@ interface CircleConfig{
   y: number;
   radius: number;
 }
-
-export default function getTangentPoints(c1: CircleConfig, c2: CircleConfig){
+interface Point{
+  x: number;
+  y: number;
+}
+export default function getTangentPoints(c1: CircleConfig, c2: CircleConfig): [Point, Point, Point, Point]{
   const {atan, asin, cos, PI, sin, sqrt} = Math;
 
   // probably a better (more mathematical) way than just swapping the circles
