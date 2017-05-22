@@ -1,6 +1,7 @@
 import Delta from './Delta';
+import Point from './Point';
 
-export default class Circle{
+export default class Circle implements Point{
   acceleration: Delta;
   color: string;
   mass: number;

@@ -1,13 +1,10 @@
 // https://en.wikipedia.org/wiki/Tangent_lines_to_circles#Outer_tangent
+import Point from './Point';
 
 interface CircleConfig{
   x: number;
   y: number;
   radius: number;
-}
-interface Point{
-  x: number;
-  y: number;
 }
 export default function getTangentPoints(c1: CircleConfig, c2: CircleConfig): [Point, Point, Point, Point]{
   const {atan, asin, cos, PI, sin, sqrt} = Math;
