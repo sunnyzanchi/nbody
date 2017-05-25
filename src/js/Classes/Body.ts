@@ -1,5 +1,5 @@
-import Delta from './Delta';
-import Point from './Point';
+import Delta from 'Classes/Delta';
+import Point from 'Interfaces/Point';
 
 export default class Body implements Point{
   acceleration: Delta;

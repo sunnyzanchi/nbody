@@ -1,5 +1,5 @@
-import Body from './Body';
-import Drawable from './Drawable';
+import Body from 'Classes/Body';
+import Drawable from 'Interfaces/Drawable';
 
 export default class Star extends Body implements Drawable{
   constructor(opts){

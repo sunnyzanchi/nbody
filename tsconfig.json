@@ -1,19 +1,24 @@
 {
     "compilerOptions": {
-        "target": "es6",
-        "module": "commonjs",
-        "moduleResolution": "node",
+      "baseUrl": "./src/js",
+        "declaration": false,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
         "isolatedModules": false,
         "jsx": "react",
-        "experimentalDecorators": true,
-        "emitDecoratorMetadata": true,
-        "declaration": false,
+        "module": "commonjs",
+        "moduleResolution": "node",
         "noImplicitAny": false,
         "noImplicitUseStrict": false,
-        "removeComments": true,
         "noLib": false,
+        "paths": {
+          "Classes/*": ["Classes/*"],
+          "Interfaces/*": ["Interfaces/*"]
+        },
         "preserveConstEnums": true,
-        "suppressImplicitAnyIndexErrors": true
+        "removeComments": true,
+        "suppressImplicitAnyIndexErrors": true,
+        "target": "es6"
     },
     "exclude": [
         "node_modules",
