@@ -1,14 +1,14 @@
 import Point from './Point';
 
 class Viewport implements Point{
-  holding: boolean;
-  lastX: number;
-  lastY: number;
-  max: number;
-  min: number;
-  scale: number;
-  scaleMax: number;
-  scaleMin: number;
+  private holding: boolean;
+  private lastX: number;
+  private lastY: number;
+  private max: number;
+  private min: number;
+  private scale: number;
+  private scaleMax: number;
+  private scaleMin: number;
   x: number;
   y: number;
 
