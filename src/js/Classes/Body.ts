@@ -1,7 +1,7 @@
 import Delta from 'Classes/Delta';
 import Point from 'Interfaces/Point';
 
-export default class Body implements Point{
+export default class Body extends Delta implements Point{
   acceleration: Delta;
   color: string;
   mass: number;
@@ -27,6 +27,7 @@ export default class Body implements Point{
     x: number,
     y: number
   }){
+    super(x, y);
     this.acceleration = acceleration;
     this.radius = radius;
     this.color = color || '#' + Math.round(((this.radius - 15) / 10) * 255).toString(16) + '0000';
