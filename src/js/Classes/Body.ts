@@ -1,7 +1,8 @@
 import Delta from 'Classes/Delta';
+import Drawable from 'Interfaces/Drawable';
 import Point from 'Interfaces/Point';
 
-abstract class Body extends Delta implements Point{
+abstract class Body extends Delta implements Drawable, Point{
   acceleration: Delta;
   color: string;
   mass: number;
@@ -37,6 +38,8 @@ abstract class Body extends Delta implements Point{
     this.x = x;
     this.y = y;
   }
+
+  draw(ctx: CanvasRenderingContext2D):void{}
 }
 
 export default Body;
