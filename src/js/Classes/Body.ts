@@ -1,7 +1,7 @@
 import Delta from 'Classes/Delta';
 import Point from 'Interfaces/Point';
 
-export default class Body extends Delta implements Point{
+abstract class Body extends Delta implements Point{
   acceleration: Delta;
   color: string;
   mass: number;
@@ -38,3 +38,5 @@ export default class Body extends Delta implements Point{
     this.y = y;
   }
 }
+
+export default Body;
