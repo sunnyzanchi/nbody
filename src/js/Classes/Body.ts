@@ -1,30 +1,30 @@
-import Delta from 'Classes/Delta';
+import Vector from 'Classes/Vector';
 import Drawable from 'Interfaces/Drawable';
 import Point from 'Interfaces/Point';
 
-abstract class Body extends Delta implements Drawable, Point{
-  acceleration: Delta;
+abstract class Body extends Vector implements Drawable, Point{
+  acceleration: Vector;
   color: string;
   mass: number;
   radius: number;
-  velocity: Delta;
+  velocity: Vector;
   x: number;
   y: number;
 
   constructor({
-    acceleration = new Delta,
+    acceleration = new Vector,
     color,
     mass,
     radius,
-    velocity = new Delta,
+    velocity = new Vector,
     x,
     y
   }: {
-    acceleration?: Delta,
+    acceleration?: Vector,
     color?: string,
     mass?: number,
     radius: number,
-    velocity?: Delta,
+    velocity?: Vector,
     x: number,
     y: number
   }){
