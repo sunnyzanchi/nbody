@@ -8,7 +8,7 @@ export default class Universe{
   constructor(gravity = .5, timeStep = 8){
     this.bodies = [];
     this.gravity = gravity;
-    this.timeStep = timeStep;
+    this.timeStep = 1 / timeStep;
   }
 
   checkCollision(b: Body, b2: Body): boolean{

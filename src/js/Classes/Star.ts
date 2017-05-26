@@ -1,7 +1,7 @@
 import Body from 'Classes/Body';
 import Drawable from 'Interfaces/Drawable';
 
-export default class Star extends Body implements Drawable{
+export default class Star extends Body{
   constructor(opts){
     super(opts);
   }
