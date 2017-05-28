@@ -1,3 +1,6 @@
+#ifndef VECTOR_H
+#define VECTOR_H
+
 #include <cmath>
 #include <memory>
 
@@ -19,7 +22,7 @@ public:
   ~Vector() {}
 
 	Vector Abs() const {
-	  return Vector(std::abs(this->x), std::abs(this->y));
+	  return Vector(fabs(this->x), fabs(this->y));
 	}
 
   Vector Add(const Vector& vector) const {
@@ -48,7 +51,7 @@ public:
   }
 
 	float Distance(const Vector& vector) const {
-    return std::sqrt(this->DistanceSquared(vector));
+    return sqrt(this->DistanceSquared(vector));
 	}
 
   Vector Divide(float divisor) const {
@@ -70,7 +73,7 @@ public:
 	}
 
 	float Length() const {
-		return std::sqrt(this->LengthSquared());
+		return sqrt(this->LengthSquared());
 	}
 
 	float LengthSquared() const {
@@ -137,3 +140,5 @@ public:
 		return this->Multiply(-1);
 	}
 };
+
+#endif // VECTOR_H
