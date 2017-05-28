@@ -1,0 +1,145 @@
+#include <cmath>
+#include <memory>
+
+// NOTE: This adaption of the Vector class is excessively function for 
+// the purposes of a high-performance n-body simulation. This is only 
+// a provisional starting point.
+class Vector {
+protected:
+	float x, y;
+  float Dot(const Vector* const vector) const {
+    // possible overflow
+    return (this->x * vector->x + this->y * vector->y);
+  }
+public:
+	Vector(float x = 0, float y = 0) {
+		this->x = 0;
+		this->y = 0;
+	}
+
+	Vector Abs() const {
+	  return Vector(std::abs(this->x), std::abs(this->y));
+	}
+
+  Vector Add(Vector& const vector) const {
+    // possible overflow
+    return Vector(this->x + vector.x, this->y + vector.y);
+  }
+  Vector Add(float addend) const {
+    // possible overflow
+    return Vector(this->x + addend, this->y + addend);
+  }
+
+  Vector Clone() const {
+    return Vector(this->x, this->y);
+  }
+
+
+
+	~Vector()
+	{
+	}
+
+	float Cross(Vector& const vector) const {
+    // possible overflow
+		return (this->x * vector.y - this->y * vector.x);
+	}
+
+  float DistanceSquared(Vector& const vector) const {
+    // possible underflow and overflow
+    float dx = this->x - vector.x;
+    float dy = this->y - vector.y;
+    return dx * dx + dy * dy;
+  }
+
+	float Distance(Vector& const vector) const {
+    // possible underflow and overflow
+    return std::sqrt(this->DistanceSquared(vector));
+	}
+
+  Vector Divide(float divisor) const {
+    // possible div by zero
+		return Vector(this->x / divisor, this->y / divisor);
+	}
+  Vector Divide(Vector& const divisor) const {
+    // possible div by zero
+    return Vector(this->x / divisor.x, this->y / divisor.y);
+  }
+
+	float Dot(Vector& const vector) const {
+    // possible overflow
+		return (this->x * vector.x + this->y * vector.y);
+	}
+
+	bool Equals(Vector& const vector) const {
+		return (vector.x == this->x && vector.y == this->y);
+	}
+
+	float Length() const {
+		return std::sqrt(this->LengthSquared());
+	}
+
+	float LengthSquared() const {
+		return this->Dot(this);
+	}
+
+  // "BilinearlyInterpolate" or "LinearlyInterpolate"
+  Vector Lerp(Vector& const vector, float amount) const {
+    // possible underflow and overflow
+    // TODO: check that this is correct interpolation (by definition).
+		return Vector(this->x + (vector.x - this->x) * amount, this->y + (vector.y - this->y) * amount);
+	}
+
+  Vector Multiply(Vector& multiplier) const {
+    // possible overflow
+		return Vector(this->x * multiplier.x, this->y * multiplier.y);
+	}
+  Vector Multiply(float multiplier) const {
+    // possible overflow
+    return Vector(this->x * multiplier, this->y * multiplier);
+  }
+
+	Vector Normalize() const {
+		this->Divide(this->Length());
+	}
+
+  // Changed this to not return anything. Set does not return
+  // if we are to be efficient.
+  Vector Set(Vector target) {
+		this->x = target.x;
+		this->y = target.y;
+	}
+  // Changed this to not return anything. Set should probably not return 
+  // an object.
+  void Set(float target) {
+    this->x = target;
+    this->y = target;
+  }
+
+  // DANGER: this function (which was likely written incorrectly from the 
+  // original Vector.ts) did not originally mutate to the new length. 
+  // Instead, it returned this->Normalize().Multiply().
+  void SetLength(float length) {
+		Vector temp = this->Normalize().Multiply(length);
+    this->x = temp.x;
+    this->y = temp.y;
+	}
+
+  Vector Subtract(Vector sub) {
+    // possible underflow
+  	return Vector(this->x - sub.x, this->y - sub.y);
+	}
+  Vector Subtract(float sub) {
+    // possible underflow
+    return Vector(this->x - sub, this->y - sub);
+  }
+
+  void Truncate(float max_length) {
+		if (this->Length() > max_length)
+		  this->SetLength(max_length);
+	}
+
+  Vector GetReverse() {
+		return this->Multiply(-1);
+	}
+};
