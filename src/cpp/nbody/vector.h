@@ -11,44 +11,44 @@ namespace nbody {
 // a provisional starting point.
 class Vector {
 protected:
-	float x, y;
+	float x_, y_;
   float Dot(const Vector* vector) const {
     // possible overflow
-    return (this->x * vector->x + this->y * vector->y);
+    return (this->x_ * vector->x_ + this->y_ * vector->y_);
   }
 public:
 	Vector(float x = 0, float y = 0) {
-		this->x = 0;
-		this->y = 0;
+		this->x_ = 0;
+		this->y_ = 0;
 	}
   ~Vector() {}
 
 	Vector Abs() const {
-	  return Vector(fabs(this->x), fabs(this->y));
+	  return Vector(fabs(this->x_), fabs(this->y_));
 	}
 
   Vector Add(const Vector& vector) const {
     // possible overflow
-    return Vector(this->x + vector.x, this->y + vector.y);
+    return Vector(this->x_ + vector.x_, this->y_ + vector.y_);
   }
   Vector Add(float addend) const {
     // possible overflow
-    return Vector(this->x + addend, this->y + addend);
+    return Vector(this->x_ + addend, this->y_ + addend);
   }
 
   Vector Clone() const {
-    return Vector(this->x, this->y);
+    return Vector(this->x_, this->y_);
   }
 
 	float Cross(const Vector& vector) const {
     // possible overflow
-		return (this->x * vector.y - this->y * vector.x);
+		return (this->x_ * vector.y_ - this->y_ * vector.x_);
 	}
 
   float DistanceSquared(const Vector& vector) const {
     // possible underflow and overflow
-    float dx = this->x - vector.x;
-    float dy = this->y - vector.y;
+    float dx = this->x_ - vector.x_;
+    float dy = this->y_ - vector.y_;
     return dx * dx + dy * dy;
   }
 
@@ -58,20 +58,20 @@ public:
 
   Vector Divide(float divisor) const {
     // possible div by zero
-		return Vector(this->x / divisor, this->y / divisor);
+		return Vector(this->x_ / divisor, this->y_ / divisor);
 	}
   Vector Divide(const Vector& divisor) const {
     // possible div by zero
-    return Vector(this->x / divisor.x, this->y / divisor.y);
+    return Vector(this->x_ / divisor.x_, this->y_ / divisor.y_);
   }
 
 	float Dot(const Vector& vector) const {
     // possible overflow
-		return (this->x * vector.x + this->y * vector.y);
+		return (this->x_ * vector.x_ + this->y_ * vector.y_);
 	}
 
 	bool Equals(const Vector& vector) const {
-		return (vector.x == this->x && vector.y == this->y);
+		return (vector.x_ == this->x_ && vector.y_ == this->y_);
 	}
 
 	float Length() const {
@@ -86,16 +86,16 @@ public:
   Vector Lerp(const Vector& vector, float amount) const {
     // possible underflow and overflow
     // TODO: check that this is correct interpolation (by the definition).
-		return Vector(this->x + (vector.x - this->x) * amount, this->y + (vector.y - this->y) * amount);
+		return Vector(this->x_ + (vector.x_ - this->x_) * amount, this->y_ + (vector.y_ - this->y_) * amount);
 	}
 
   Vector Multiply(Vector& multiplier) const {
     // possible overflow
-		return Vector(this->x * multiplier.x, this->y * multiplier.y);
+		return Vector(this->x_ * multiplier.x_, this->y_ * multiplier.y_);
 	}
   Vector Multiply(float multiplier) const {
     // possible overflow
-    return Vector(this->x * multiplier, this->y * multiplier);
+    return Vector(this->x_ * multiplier, this->y_ * multiplier);
   }
 
 	Vector Normalize() const {
@@ -105,14 +105,14 @@ public:
   // Changed this to not return anything. Set does not return
   // if we are to be efficient.
   void Set(Vector target) {
-		this->x = target.x;
-		this->y = target.y;
+		this->x_ = target.x_;
+		this->y_ = target.y_;
 	}
   // Changed this to not return anything. Set should probably not return 
   // an object.
   void Set(float target) {
-    this->x = target;
-    this->y = target;
+    this->x_ = target;
+    this->y_ = target;
   }
 
   // DANGER: this function (which was likely written incorrectly from the 
@@ -120,17 +120,17 @@ public:
   // Instead, it returned this->Normalize().Multiply().
   void SetLength(float length) {
 		Vector temp = this->Normalize().Multiply(length);
-    this->x = temp.x;
-    this->y = temp.y;
+    this->x_ = temp.x_;
+    this->y_ = temp.y_;
 	}
 
   Vector Subtract(Vector sub) {
     // possible underflow
-  	return Vector(this->x - sub.x, this->y - sub.y);
+  	return Vector(this->x_ - sub.x_, this->y_ - sub.y_);
 	}
   Vector Subtract(float sub) {
     // possible underflow
-    return Vector(this->x - sub, this->y - sub);
+    return Vector(this->x_ - sub, this->y_ - sub);
   }
 
   void Truncate(float max_length) {
