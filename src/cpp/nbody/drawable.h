@@ -2,8 +2,6 @@
 #define DRAWABLE_H
 
 namespace nbody {
-namespace implementation {
-namespace interfaces {
 
 class Drawable {
 public:
@@ -13,8 +11,6 @@ public:
   virtual ~Drawable() {}
 };
 
-} // namespace interfaces
-} // namespace implementation
 } // namespace nbody
 
 #endif // DRAWABLE_H

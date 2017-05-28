@@ -5,7 +5,6 @@
 #include <memory>
 
 namespace nbody {
-namespace implementation {
 
 // NOTE: This adaption of the Vector class is excessively function for 
 // the purposes of a high-performance n-body simulation. This is only 
@@ -144,7 +143,6 @@ public:
 	}
 };
 
-} // namespace implementation
 } // namespace nbody
 
 #endif // VECTOR_H
