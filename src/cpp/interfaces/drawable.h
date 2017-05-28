@@ -15,6 +15,6 @@ public:
 
 } // namespace interfaces
 } // namespace implementation
-} // namespace tttsolver
+} // namespace nbody
 
 #endif // DRAWABLE_H

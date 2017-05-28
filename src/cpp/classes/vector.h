@@ -4,6 +4,9 @@
 #include <cmath>
 #include <memory>
 
+namespace nbody {
+namespace implementation {
+
 // NOTE: This adaption of the Vector class is excessively function for 
 // the purposes of a high-performance n-body simulation. This is only 
 // a provisional starting point.
@@ -140,5 +143,8 @@ public:
 		return this->Multiply(-1);
 	}
 };
+
+} // namespace implementation
+} // namespace nbody
 
 #endif // VECTOR_H
