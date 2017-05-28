@@ -94,12 +94,12 @@ public:
   }
 
 	Vector Normalize() const {
-		this->Divide(this->Length());
+		return this->Divide(this->Length());
 	}
 
   // Changed this to not return anything. Set does not return
   // if we are to be efficient.
-  Vector Set(Vector target) {
+  void Set(Vector target) {
 		this->x = target.x;
 		this->y = target.y;
 	}
