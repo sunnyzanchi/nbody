@@ -34,8 +34,6 @@ public:
     return Vector(this->x, this->y);
   }
 
-
-
 	~Vector()
 	{
 	}
