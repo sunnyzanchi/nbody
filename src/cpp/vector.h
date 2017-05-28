@@ -7,7 +7,7 @@
 class Vector {
 protected:
 	float x, y;
-  float Dot(const Vector* const vector) const {
+  float Dot(const Vector* vector) const {
     // possible overflow
     return (this->x * vector->x + this->y * vector->y);
   }
@@ -16,12 +16,13 @@ public:
 		this->x = 0;
 		this->y = 0;
 	}
+  ~Vector() {}
 
 	Vector Abs() const {
 	  return Vector(std::abs(this->x), std::abs(this->y));
 	}
 
-  Vector Add(Vector& const vector) const {
+  Vector Add(const Vector& vector) const {
     // possible overflow
     return Vector(this->x + vector.x, this->y + vector.y);
   }
@@ -34,24 +35,19 @@ public:
     return Vector(this->x, this->y);
   }
 
-	~Vector()
-	{
-	}
-
-	float Cross(Vector& const vector) const {
+	float Cross(const Vector& vector) const {
     // possible overflow
 		return (this->x * vector.y - this->y * vector.x);
 	}
 
-  float DistanceSquared(Vector& const vector) const {
+  float DistanceSquared(const Vector& vector) const {
     // possible underflow and overflow
     float dx = this->x - vector.x;
     float dy = this->y - vector.y;
     return dx * dx + dy * dy;
   }
 
-	float Distance(Vector& const vector) const {
-    // possible underflow and overflow
+	float Distance(const Vector& vector) const {
     return std::sqrt(this->DistanceSquared(vector));
 	}
 
@@ -59,17 +55,17 @@ public:
     // possible div by zero
 		return Vector(this->x / divisor, this->y / divisor);
 	}
-  Vector Divide(Vector& const divisor) const {
+  Vector Divide(const Vector& divisor) const {
     // possible div by zero
     return Vector(this->x / divisor.x, this->y / divisor.y);
   }
 
-	float Dot(Vector& const vector) const {
+	float Dot(const Vector& vector) const {
     // possible overflow
 		return (this->x * vector.x + this->y * vector.y);
 	}
 
-	bool Equals(Vector& const vector) const {
+	bool Equals(const Vector& vector) const {
 		return (vector.x == this->x && vector.y == this->y);
 	}
 
@@ -82,9 +78,9 @@ public:
 	}
 
   // "BilinearlyInterpolate" or "LinearlyInterpolate"
-  Vector Lerp(Vector& const vector, float amount) const {
+  Vector Lerp(const Vector& vector, float amount) const {
     // possible underflow and overflow
-    // TODO: check that this is correct interpolation (by definition).
+    // TODO: check that this is correct interpolation (by the definition).
 		return Vector(this->x + (vector.x - this->x) * amount, this->y + (vector.y - this->y) * amount);
 	}
 
