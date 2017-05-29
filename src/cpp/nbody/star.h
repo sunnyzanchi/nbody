@@ -8,7 +8,7 @@ namespace nbody {
 
 class Star : public Body, public Drawable {
 public:
-  Star(float x, float y, float mass, float radius, std::string color,
+  explicit Star(float x, float y, float mass, float radius, std::string color,
         Vector velocity = Vector(), Vector acceleration = Vector())
     : Body(x, y, mass, radius, color, velocity, acceleration)
   {}
