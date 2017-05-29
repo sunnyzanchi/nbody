@@ -11,7 +11,7 @@ namespace nbody {
 class Body : public Vector, public Drawable {
  public:
   explicit Body(float x, float y, float mass, float radius, std::string color,
-                      Vector velocity = Vector(), Vector acceleration = Vector());
+                Vector velocity = Vector(), Vector acceleration = Vector());
   virtual ~Body() = 0 {};
   float mass() const { return mass_; }
   float radius() const { return radius_; }
