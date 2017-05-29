@@ -27,11 +27,13 @@ public:
     acceleration_ = acceleration;
   }
 
-  // getter methods
   float mass() const { return mass_; }
   float radius() const { return radius_; }
-  Vector velocity() const { return velocity_; }
   Vector acceleration() const { return acceleration_; }
+  // DANGER: this method gives non-const access to velocity.
+  // This is a provision to conform to Universe business logic.
+  // TODO: address the cause(s) of this issue.
+  Vector& velocity() { return velocity_; }
 
   void Draw(/* CanvasRenderingContext2D ctx */) {}
 
