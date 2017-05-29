@@ -8,12 +8,7 @@
 namespace nbody {
 
 class Universe {
-private:
-  std::vector<Body> bodies_;
-  const float gravity_;
-  const float time_index_;
-
-public:
+ public:
   explicit Universe(float gravity, float time_index);
 
   Universe() : gravity_(0.5), time_index_(8.0) {}
@@ -37,6 +32,13 @@ public:
   // i.e., logic below is mutating the bodies' velocity Vector.
   // TODO: This is provisional and needs addressing.
   void ResolveCollision(Body& a, Body& b);
+
+ private:
+  std::vector<Body> bodies_;
+
+  const float gravity_;
+
+  const float time_index_;
 };
 
 } // namespace nbody
