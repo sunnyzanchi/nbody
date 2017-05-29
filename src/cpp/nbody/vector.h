@@ -16,7 +16,7 @@ protected:
     return (x_ * vector->x_ + y_ * vector->y_);
   }
 public:
-  Vector(float x = 0, float y = 0) {
+  explicit Vector(float x = 0, float y = 0) {
     x_ = 0;
     y_ = 0;
   }
