@@ -16,13 +16,13 @@ bool Universe::CheckCollision(const Body& a, const Body& b) {
 void Universe::ComputeForces() {
   size_t num_bodies = bodies_.size();
   for (size_t i = 0; i < num_bodies; i++) {
-    auto b1 = bodies_[i];          // body1
+    Body& b1 = bodies_[i];         // body1
     auto a1 = b1.acceleration();   // accelleration1
     auto m1 = b1.mass();           // mass1
     a1.Set(0);
 
     for (size_t j = 0; j < i; j++) {
-      auto b2 = bodies_[j];        // body2
+      Body& b2 = bodies_[j];       // body2
       auto a2 = b2.acceleration(); // accelleration2
       auto m2 = b2.mass();         // mass2
 
@@ -39,7 +39,7 @@ void Universe::ComputeForces() {
 void Universe::DoCollisions() {
   size_t num_bodies = bodies_.size();
   for (size_t i = 0; i < num_bodies; i++) {
-    auto b = bodies_[i];
+    Body& b = bodies_[i];
 
     for (size_t j = 0; j < i; j++) {
       auto b2 = bodies_[j];
