@@ -12,9 +12,13 @@ class Body : public Vector, public Drawable {
  public:
   explicit Body(float x, float y, float mass, float radius, std::string color,
                 Vector velocity = Vector(), Vector acceleration = Vector());
-  virtual ~Body() = 0 {};
+
+  virtual ~Body() {}
+
   float mass() const { return mass_; }
+
   float radius() const { return radius_; }
+
   Vector acceleration() const { return acceleration_; }
 
   // DANGER: this method gives non-const access to velocity.
@@ -24,10 +28,15 @@ class Body : public Vector, public Drawable {
 
  private:
   float x_, y_;
+
   float mass_;
+
   float radius_;
+
   std::string color_;
+
   Vector velocity_;
+
   Vector acceleration_;
 };
 
