@@ -26,7 +26,8 @@ public:
     velocity_ = velocity;
     acceleration_ = acceleration;
   }
-
+  
+  float radius() const { return radius_; }
 
   void Draw(/* CanvasRenderingContext2D ctx */) {}
 
