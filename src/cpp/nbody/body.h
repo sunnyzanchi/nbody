@@ -18,14 +18,7 @@ private:
   Vector acceleration_;
 public:
   explicit Body(float x, float y, float mass, float radius, std::string color,
-          Vector velocity = Vector(), Vector acceleration = Vector())
-      : Vector(x, y) {
-    mass_ = mass;
-    radius_ = radius;
-    color_ = color;
-    velocity_ = velocity;
-    acceleration_ = acceleration;
-  }
+                      Vector velocity = Vector(), Vector acceleration = Vector());
   float mass() const { return mass_; }
   float radius() const { return radius_; }
   Vector acceleration() const { return acceleration_; }
@@ -33,7 +26,6 @@ public:
   // This is a provision to conform to Universe business logic.
   // TODO: address the cause(s) of this issue.
   Vector& velocity() { return velocity_; }
-  void Draw(/* CanvasRenderingContext2D ctx */) {}
   virtual ~Body() = 0 {};
 };
 
