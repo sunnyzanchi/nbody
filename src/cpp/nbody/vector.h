@@ -124,11 +124,11 @@ public:
     this->y_ = temp.y_;
 	}
 
-  Vector Subtract(Vector sub) {
+  Vector Subtract(Vector sub) const {
     // possible underflow
   	return Vector(this->x_ - sub.x_, this->y_ - sub.y_);
 	}
-  Vector Subtract(float sub) {
+  Vector Subtract(float sub) const {
     // possible underflow
     return Vector(this->x_ - sub, this->y_ - sub);
   }
