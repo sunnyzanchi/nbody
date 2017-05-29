@@ -30,8 +30,8 @@ public:
   // getter methods
   float mass() const { return mass_; }
   float radius() const { return radius_; }
-  float velocity() const { return velocity_; }
-  float acceleration() const { return acceleration_; }
+  Vector velocity() const { return velocity_; }
+  Vector acceleration() const { return acceleration_; }
 
   void Draw(/* CanvasRenderingContext2D ctx */) {}
 
