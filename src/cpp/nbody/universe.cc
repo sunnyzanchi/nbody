@@ -41,7 +41,7 @@ void Universe::DoCollisions() {
   for (size_t i = 0; i < num_bodies; i++) {
     auto b = bodies_[i];
 
-    for (auto j = 0; j < i; j++) {
+    for (size_t j = 0; j < i; j++) {
       auto b2 = bodies_[j];
       if (CheckCollision(b, b2))
         ResolveCollision(b, b2);
