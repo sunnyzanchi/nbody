@@ -61,7 +61,7 @@ void Universe::DoPhysics() {
   ComputeForces();
 
   for (auto b : bodies_) {
-    b.velocity.set(b.velocity().Add(b.acceleration().Multiply(dt)));
+    b.velocity().Set(b.velocity().Add(b.acceleration().Multiply(dt)));
   }
 
   for (auto b : bodies_) {
