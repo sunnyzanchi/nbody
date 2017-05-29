@@ -21,7 +21,7 @@ void Universe::ComputeForces() {
     auto m1 = b1.mass();           // mass1
     a1.Set(0);
 
-    for (auto j = 0; j < i; j++) {
+    for (size_t j = 0; j < i; j++) {
       auto b2 = bodies_[j];        // body2
       auto a2 = b2.acceleration(); // accelleration2
       auto m2 = b2.mass();         // mass2
