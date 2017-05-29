@@ -27,8 +27,8 @@ void Universe::ComputeForces() {
       auto m2 = b2.mass();         // mass2
 
       auto delta = b1.Subtract(b2);
-      auto norm = sqrt(100.0 + delta.LengthSquared());
-      auto mag = gravity_ / (norm * norm * norm);
+      float norm = sqrt(100.0f + delta.LengthSquared());
+      float mag = gravity_ / (norm * norm * norm);
 
       a1.Set(a1.Subtract(delta.Multiply(mag * m2)));
       a2.Set(a2.Add(delta.Multiply(mag * m1)));
@@ -56,7 +56,7 @@ void Universe::DoCollisions() {
 void Universe::DoPhysics() {
   const float dt = time_index_;
   for (auto b : bodies_) {
-    b.Set(b.Add(b.velocity().Multiply(0.5 * dt)));
+    b.Set(b.Add(b.velocity().Multiply(0.5f * dt)));
   }
   ComputeForces();
 
@@ -65,7 +65,7 @@ void Universe::DoPhysics() {
   }
 
   for (auto b : bodies_) {
-    b.Set(b.Add(b.velocity().Multiply(0.5 * dt)));
+    b.Set(b.Add(b.velocity().Multiply(0.5f * dt)));
   }
 
   DoCollisions();
