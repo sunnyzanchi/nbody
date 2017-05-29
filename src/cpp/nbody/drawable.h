@@ -1,5 +1,5 @@
-#ifndef DRAWABLE_H
-#define DRAWABLE_H
+#ifndef NBODY_DRAWABLE_H_
+#define NBODY_DRAWABLE_H_
 
 namespace nbody {
 
@@ -13,4 +13,4 @@ public:
 
 } // namespace nbody
 
-#endif // DRAWABLE_H
+#endif // NBODY_DRAWABLE_H_
