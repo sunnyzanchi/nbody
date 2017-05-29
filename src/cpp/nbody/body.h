@@ -9,18 +9,20 @@
 namespace nbody {
 
 class Body : public Vector, public Drawable {
-public:
+ public:
   explicit Body(float x, float y, float mass, float radius, std::string color,
                       Vector velocity = Vector(), Vector acceleration = Vector());
   virtual ~Body() = 0 {};
   float mass() const { return mass_; }
   float radius() const { return radius_; }
   Vector acceleration() const { return acceleration_; }
+
   // DANGER: this method gives non-const access to velocity.
   // This is a provision to conform to Universe business logic.
   // TODO: address the cause(s) of this issue.
   Vector& velocity() { return velocity_; }
-private:
+
+ private:
   float x_, y_;
   float mass_;
   float radius_;
