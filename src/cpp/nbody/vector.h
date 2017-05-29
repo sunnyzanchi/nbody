@@ -13,132 +13,132 @@ protected:
   float x_, y_;
   float Dot(const Vector* vector) const {
     // possible overflow
-    return (this->x_ * vector->x_ + this->y_ * vector->y_);
+    return (x_ * vector->x_ + y_ * vector->y_);
   }
 public:
   Vector(float x = 0, float y = 0) {
-    this->x_ = 0;
-    this->y_ = 0;
+    x_ = 0;
+    y_ = 0;
   }
   ~Vector() {}
 
   Vector Abs() const {
-    return Vector(fabs(this->x_), fabs(this->y_));
+    return Vector(fabs(x_), fabs(y_));
   }
 
   Vector Add(const Vector& vector) const {
     // possible overflow
-    return Vector(this->x_ + vector.x_, this->y_ + vector.y_);
+    return Vector(x_ + vector.x_, y_ + vector.y_);
   }
   Vector Add(float addend) const {
     // possible overflow
-    return Vector(this->x_ + addend, this->y_ + addend);
+    return Vector(x_ + addend, y_ + addend);
   }
 
   Vector Clone() const {
-    return Vector(this->x_, this->y_);
+    return Vector(x_, y_);
   }
 
   float Cross(const Vector& vector) const {
     // possible overflow
-    return (this->x_ * vector.y_ - this->y_ * vector.x_);
+    return (x_ * vector.y_ - y_ * vector.x_);
   }
 
   float DistanceSquared(const Vector& vector) const {
     // possible underflow and overflow
-    float dx = this->x_ - vector.x_;
-    float dy = this->y_ - vector.y_;
+    float dx = x_ - vector.x_;
+    float dy = y_ - vector.y_;
     return dx * dx + dy * dy;
   }
 
   float Distance(const Vector& vector) const {
-    return sqrt(this->DistanceSquared(vector));
+    return sqrt(DistanceSquared(vector));
   }
 
   Vector Divide(float divisor) const {
     // possible div by zero
-    return Vector(this->x_ / divisor, this->y_ / divisor);
+    return Vector(x_ / divisor, y_ / divisor);
   }
   Vector Divide(const Vector& divisor) const {
     // possible div by zero
-    return Vector(this->x_ / divisor.x_, this->y_ / divisor.y_);
+    return Vector(x_ / divisor.x_, y_ / divisor.y_);
   }
 
   float Dot(const Vector& vector) const {
     // possible overflow
-    return (this->x_ * vector.x_ + this->y_ * vector.y_);
+    return (x_ * vector.x_ + y_ * vector.y_);
   }
 
   bool Equals(const Vector& vector) const {
-    return (vector.x_ == this->x_ && vector.y_ == this->y_);
+    return (vector.x_ == x_ && vector.y_ == y_);
   }
 
   float Length() const {
-    return sqrt(this->LengthSquared());
+    return sqrt(LengthSquared());
   }
 
   float LengthSquared() const {
-    return this->Dot(this);
+    return Dot(this);
   }
 
   // "BilinearlyInterpolate" or "LinearlyInterpolate"
   Vector Lerp(const Vector& vector, float amount) const {
     // possible underflow and overflow
     // TODO: check that this is correct interpolation (by the definition).
-    return Vector(this->x_ + (vector.x_ - this->x_) * amount, this->y_ + (vector.y_ - this->y_) * amount);
+    return Vector(x_ + (vector.x_ - x_) * amount, y_ + (vector.y_ - y_) * amount);
   }
 
   Vector Multiply(Vector& multiplier) const {
     // possible overflow
-    return Vector(this->x_ * multiplier.x_, this->y_ * multiplier.y_);
+    return Vector(x_ * multiplier.x_, y_ * multiplier.y_);
   }
   Vector Multiply(float multiplier) const {
     // possible overflow
-    return Vector(this->x_ * multiplier, this->y_ * multiplier);
+    return Vector(x_ * multiplier, y_ * multiplier);
   }
 
   Vector Normalize() const {
-    return this->Divide(this->Length());
+    return Divide(Length());
   }
 
   // Changed this to not return anything. Set does not return
   // if we are to be efficient.
   void Set(Vector target) {
-    this->x_ = target.x_;
-    this->y_ = target.y_;
+    x_ = target.x_;
+    y_ = target.y_;
   }
   // Changed this to not return anything. Set should probably not return 
   // an object.
   void Set(float target) {
-    this->x_ = target;
-    this->y_ = target;
+    x_ = target;
+    y_ = target;
   }
 
   // DANGER: this function (which was likely written incorrectly from the 
   // original Vector.ts) did not originally mutate to the new length. 
-  // Instead, it returned this->Normalize().Multiply().
+  // Instead, it returned Normalize().Multiply().
   void SetLength(float length) {
-    Vector temp = this->Normalize().Multiply(length);
-    this->x_ = temp.x_;
-    this->y_ = temp.y_;
+    Vector temp = Normalize().Multiply(length);
+    x_ = temp.x_;
+    y_ = temp.y_;
   }
 
   Vector Subtract(Vector sub) const {
     // possible underflow
-    return Vector(this->x_ - sub.x_, this->y_ - sub.y_);
+    return Vector(x_ - sub.x_, y_ - sub.y_);
   }
   Vector Subtract(float sub) const {
     // possible underflow
-    return Vector(this->x_ - sub, this->y_ - sub);
+    return Vector(x_ - sub, y_ - sub);
   }
 
   void Truncate(float max_length) {
-    if (this->Length() > max_length)
-      this->SetLength(max_length);
+    if (Length() > max_length)
+      SetLength(max_length);
   }
 
   Vector GetReverse() {
-    return this->Multiply(-1);
+    return Multiply(-1);
   }
 };
 
