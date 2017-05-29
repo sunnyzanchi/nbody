@@ -1,5 +1,5 @@
-#ifndef STAR_H
-#define STAR_H
+#ifndef NBODY_STAR_H_
+#define NBODY_STAR_H_
 
 #include "body.h"
 #include "drawable.h"
@@ -35,4 +35,4 @@ public:
 
 } // namespace nbody
 
-#endif // STAR_H
+#endif // NBODY_STAR_H_
