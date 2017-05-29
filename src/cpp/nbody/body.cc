@@ -7,7 +7,7 @@
 namespace nbody {
 
 Body::Body(float x, float y, float mass, float radius, std::string color,
-        Vector velocity = Vector(), Vector acceleration = Vector())
+        Vector velocity, Vector acceleration)
     : Vector(x, y) {
   mass_ = mass;
   radius_ = radius;
@@ -15,5 +15,10 @@ Body::Body(float x, float y, float mass, float radius, std::string color,
   velocity_ = velocity;
   acceleration_ = acceleration;
 }
+
+Body::Body(float x, float y, float mass, float radius, std::string color)
+  : Body(x, y, mass, radius, color, Vector(), Vector())
+{}
+
 
 } // namespace nbody
