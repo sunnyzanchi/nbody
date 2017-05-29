@@ -24,7 +24,7 @@ Vector Vector::Add(float addend) const {
 
 Vector Vector::Add(const Vector& addend) const {
   // possible overflow
-  return Vector(x_ + vector.x_, y_ + vector.y_);
+  return Vector(x_ + addend.x_, y_ + addend.y_);
 }
 
 Vector Vector::Clone() const {
