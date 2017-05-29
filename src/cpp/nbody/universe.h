@@ -34,7 +34,7 @@ class Universe {
   void ResolveCollision(Body& a, Body& b);
 
  private:
-  std::vector<Body> bodies_;
+   std::vector<Body> bodies_;
 
   const float gravity_;
 
