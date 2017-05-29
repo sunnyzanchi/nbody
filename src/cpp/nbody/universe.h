@@ -1,5 +1,5 @@
-#ifndef UNIVERSE_H
-#define UNIVERSE_H
+#ifndef NBODY_UNIVERSE_H_
+#define NBODY_UNIVERSE_H_
 
 #include <vector>
 
@@ -107,4 +107,4 @@ public:
 
 } // namespace nbody
 
-#endif // UNIVERSE_H
+#endif // NBODY_UNIVERSE_H_
