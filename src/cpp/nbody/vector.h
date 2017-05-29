@@ -1,5 +1,5 @@
-#ifndef VECTOR_H
-#define VECTOR_H
+#ifndef NBODY_VECTOR_H_
+#define NBODY_VECTOR_H_
 
 #include <cmath>
 
@@ -144,4 +144,4 @@ public:
 
 } // namespace nbody
 
-#endif // VECTOR_H
+#endif // NBODY_VECTOR_H_
