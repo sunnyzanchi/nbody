@@ -1,5 +1,4 @@
 #include "universe.h"
-#include "body.h"
 
 namespace nbody {
 
