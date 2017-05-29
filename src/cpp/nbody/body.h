@@ -1,5 +1,5 @@
-#ifndef BODY_H
-#define BODY_H
+#ifndef NBODY_BODY_H_
+#define NBODY_BODY_H_
 
 #include <string>
 
@@ -39,4 +39,4 @@ public:
 
 } // namespace nbody
 
-#endif // BODY_H
+#endif // NBODY_BODY_H_
