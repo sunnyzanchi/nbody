@@ -8,7 +8,6 @@
 
 namespace nbody {
 
-// TODO: make abstract/pure-virtual
 class Body : public Vector, public Drawable {
 private:
   float x_, y_;
