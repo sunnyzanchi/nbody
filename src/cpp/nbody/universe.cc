@@ -42,7 +42,7 @@ void Universe::DoCollisions() {
     Body& b = bodies_[i];
 
     for (size_t j = 0; j < i; j++) {
-      auto b2 = bodies_[j];
+      Body& b2 = bodies_[j];
       if (CheckCollision(b, b2))
         ResolveCollision(b, b2);
     }
@@ -55,16 +55,16 @@ void Universe::DoCollisions() {
 // TODO: This is provisional and needs addressing.
 void Universe::DoPhysics() {
   const float dt = time_index_;
-  for (auto b : bodies_) {
+  for (Body& b : bodies_) {
     b.Set(b.Add(b.velocity().Multiply(0.5f * dt)));
   }
   ComputeForces();
 
-  for (auto b : bodies_) {
+  for (Body& b : bodies_) {
     b.velocity().Set(b.velocity().Add(b.acceleration().Multiply(dt)));
   }
 
-  for (auto b : bodies_) {
+  for (Body& b : bodies_) {
     b.Set(b.Add(b.velocity().Multiply(0.5f * dt)));
   }
 
