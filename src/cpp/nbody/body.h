@@ -26,7 +26,6 @@ public:
     velocity_ = velocity;
     acceleration_ = acceleration;
   }
-
   float mass() const { return mass_; }
   float radius() const { return radius_; }
   Vector acceleration() const { return acceleration_; }
@@ -34,9 +33,7 @@ public:
   // This is a provision to conform to Universe business logic.
   // TODO: address the cause(s) of this issue.
   Vector& velocity() { return velocity_; }
-
   void Draw(/* CanvasRenderingContext2D ctx */) {}
-
   virtual ~Body() = 0 {};
 };
 
