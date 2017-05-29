@@ -8,7 +8,7 @@ namespace nbody {
 // the purposes of a high-performance n-body simulation. This is only 
 // a provisional starting point.
 
-Vector::Vector(float x = 0, float y = 0) {
+Vector::Vector(float x, float y) {
   x_ = x;
   y_ = y;
 }
