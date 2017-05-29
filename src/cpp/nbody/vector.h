@@ -2,7 +2,6 @@
 #define VECTOR_H
 
 #include <cmath>
-#include <memory>
 
 namespace nbody {
 
