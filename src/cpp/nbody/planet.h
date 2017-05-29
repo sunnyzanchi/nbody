@@ -1,5 +1,5 @@
-#ifndef PLANET_H
-#define PLANET_H
+#ifndef NBODY_PLANET_H_
+#define NBODY_PLANET_H_
 
 #include "body.h"
 #include "drawable.h"
@@ -27,4 +27,4 @@ public:
 
 } // namespace nbody
 
-#endif // PLANET_H
+#endif // NBODY_PLANET_H_
