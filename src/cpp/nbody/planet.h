@@ -8,7 +8,7 @@ namespace nbody {
 
 class Planet : public Body, public Drawable {
 public:
-  Planet(float x, float y, float mass, float radius, std::string color,
+  explicit Planet(float x, float y, float mass, float radius, std::string color,
         Vector velocity = Vector(), Vector acceleration = Vector())
     : Body(x, y, mass, radius, color, velocity, acceleration)
   {}
