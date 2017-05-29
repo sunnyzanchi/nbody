@@ -16,13 +16,13 @@ bool Universe::CheckCollision(const Body& a, const Body& b) {
 void Universe::ComputeForces() {
   size_t num_bodies = bodies_.size();
   for (size_t i = 0; i < num_bodies; i++) {
-    Body& b1 = bodies_[i];         // body1
+    Body& b1 = *bodies_[i];         // body1
     auto a1 = b1.acceleration();   // accelleration1
     auto m1 = b1.mass();           // mass1
     a1.Set(0);
 
     for (size_t j = 0; j < i; j++) {
-      Body& b2 = bodies_[j];       // body2
+      Body& b2 = *bodies_[j];       // body2
       auto a2 = b2.acceleration(); // accelleration2
       auto m2 = b2.mass();         // mass2
 
@@ -39,10 +39,10 @@ void Universe::ComputeForces() {
 void Universe::DoCollisions() {
   size_t num_bodies = bodies_.size();
   for (size_t i = 0; i < num_bodies; i++) {
-    Body& b = bodies_[i];
+    Body& b = *bodies_[i];
 
     for (size_t j = 0; j < i; j++) {
-      Body& b2 = bodies_[j];
+      Body& b2 = *bodies_[j];
       if (CheckCollision(b, b2))
         ResolveCollision(b, b2);
     }
@@ -55,17 +55,17 @@ void Universe::DoCollisions() {
 // TODO: This is provisional and needs addressing.
 void Universe::DoPhysics() {
   const float dt = time_index_;
-  for (Body& b : bodies_) {
-    b.Set(b.Add(b.velocity().Multiply(0.5f * dt)));
+  for (Body* b : bodies_) {
+    (*b).Set((*b).Add((*b).velocity().Multiply(0.5f * dt)));
   }
   ComputeForces();
 
-  for (Body& b : bodies_) {
-    b.velocity().Set(b.velocity().Add(b.acceleration().Multiply(dt)));
+  for (Body* b : bodies_) {
+    (*b).velocity().Set((*b).velocity().Add((*b).acceleration().Multiply(dt)));
   }
 
-  for (Body& b : bodies_) {
-    b.Set(b.Add(b.velocity().Multiply(0.5f * dt)));
+  for (Body* b : bodies_) {
+    (*b).Set((*b).Add((*b).velocity().Multiply(0.5f * dt)));
   }
 
   DoCollisions();
