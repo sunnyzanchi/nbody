@@ -20,5 +20,4 @@ Body::Body(float x, float y, float mass, float radius, std::string color)
   : Body(x, y, mass, radius, color, Vector(), Vector())
 {}
 
-
 } // namespace nbody
