@@ -17,7 +17,7 @@ private:
   Vector velocity_;
   Vector acceleration_;
 public:
-  Body(float x, float y, float mass, float radius, std::string color,
+  explicit Body(float x, float y, float mass, float radius, std::string color,
           Vector velocity = Vector(), Vector acceleration = Vector())
       : Vector(x, y) {
     mass_ = mass;
