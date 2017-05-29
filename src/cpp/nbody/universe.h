@@ -13,7 +13,7 @@ private:
   const float gravity_;
   const float time_index_;
 public:
-  Universe(float gravity, float time_index)
+  explicit Universe(float gravity, float time_index)
     : gravity_(gravity),
     time_index_(time_index == 0 ? throw std::exception("Divide by zero: time_index cannot be zero. (in Universe() constructor)") : time_index)
   {}
