@@ -1,8 +1,7 @@
 import Vector from 'Classes/Vector';
 import Drawable from 'Interfaces/Drawable';
-import Point from 'Interfaces/Point';
 
-abstract class Body extends Vector implements Drawable, Point{
+abstract class Body extends Vector implements Drawable{
   acceleration: Vector;
   color: string;
   mass: number;
@@ -35,11 +34,9 @@ abstract class Body extends Vector implements Drawable, Point{
     // Area of a circle
     this.mass = mass || Math.PI * this.radius ** 2;
     this.velocity = velocity;
-    this.x = x;
-    this.y = y;
   }
 
-  draw(ctx: CanvasRenderingContext2D):void{}
+  draw(ctx: CanvasRenderingContext2D): void{}
 }
 
 export default Body;
