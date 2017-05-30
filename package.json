@@ -1,0 +1,12 @@
+{
+  "name": "nbody",
+  "version": "0.1.0",
+  "description": "nbody simulation in Typescript",
+  "main": "src/js/main.ts",
+  "repository": "https://github.com/zanchi/nbody.git",
+  "author": "Zanchi",
+  "dependencies": {
+    "ts-loader": "^2.1.0",
+    "typescript": "^2.3.3"
+  }
+}

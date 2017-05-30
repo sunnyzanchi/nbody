@@ -6,7 +6,9 @@ import Universe from 'Classes/Universe';
 
 const universe = new Universe(.5, 8);
 universe.bodies.push(new Star({x: 400, y: 400, radius: 80, mass: 300000}));
-universe.bodies.push(new Planet({x: 50, y: 400, radius: 10, color: '#f99', velocity: new Vector(0, -20)}));
+universe.bodies.push(new Planet({x: 20, y: 400, radius: 10, color: '#f99', velocity: new Vector(0, -16)}));
+universe.bodies.push(new Planet({x: 780, y: 400, radius: 10, color: '#f99', velocity: new Vector(0, 18)}));
+universe.bodies.push(new Planet({x: 80, y: 400, radius: 10, color: '#f99', velocity: new Vector(0, -22)}));
 
 const canvas: HTMLCanvasElement = document.querySelector('canvas');
 const {width, height} = canvas;
