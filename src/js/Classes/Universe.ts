@@ -12,7 +12,7 @@ export default class Universe{
   }
 
   checkCollision(b: Body, b2: Body): boolean{
-    var d = b.sub(b2);
+    var d = b.position.sub(b2.position);
     var r = b.radius + b2.radius;
     return d.lengthSq() < r * r
   }
@@ -27,7 +27,7 @@ export default class Universe{
         let b2 = this.bodies[j];
         let {acceleration: a2, mass: m2} = b2;
 
-        let d = b1.sub(b2);
+        let d = b1.position.sub(b2.position);
         let norm = Math.sqrt(100.0 + d.lengthSq());
         let mag = this.gravity / (norm ** 3);
 
@@ -53,23 +53,23 @@ export default class Universe{
   doPhysics(){
     const dt = this.timeStep;
     for(let b of this.bodies){
-        b.set(b.add(b.velocity.mul(0.5 * dt)));
+        b.position = b.position.add(b.velocity.mul(0.5 * dt));
     }
     this.computeForces();
 
     for(let b of this.bodies){
-      b.velocity.set(b.velocity.add(b.acceleration.mul(dt)));
+      b.velocity = b.velocity.add(b.acceleration.mul(dt));
     }
 
     for(let b of this.bodies){
-      b.set(b.add(b.velocity.mul(0.5 * dt)));
+      b.position = b.position.add(b.velocity.mul(0.5 * dt));
     }
 
     this.doCollisions();
   }
 
   resolveCollision(b: Body, b2: Body): void{
-    var d = b.sub(b2);
+    var d = b.position.sub(b2.position);
     d.set(d.normalize());
 
     var v = b2.velocity.sub(b.velocity);

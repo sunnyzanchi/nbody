@@ -7,7 +7,7 @@ export default class Star extends Body{
   }
 
   draw(ctx: CanvasRenderingContext2D){
-    const {x, y, radius: r} = this;
+    const {position: {x, y}, radius: r} = this;
 
     ctx.beginPath();
     ctx.ellipse(x, y, r, r, 0, 0, 2*Math.PI);

@@ -7,7 +7,7 @@ export default class Planet extends Body{
   }
 
   draw(ctx: CanvasRenderingContext2D){
-    const {x, y, radius: r, color} = this;
+    const {position: {x, y}, radius: r, color} = this;
 
     ctx.beginPath();
     ctx.ellipse(x, y, r, r, 0, 0, 2*Math.PI);
