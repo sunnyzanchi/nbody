@@ -2,8 +2,8 @@ import Body from 'Classes/Body';
 
 export default class Universe{
   bodies: Body[];
-  readonly gravity?: number;
-  readonly timeStep?: number
+  readonly gravity: number;
+  readonly timeStep: number
 
   constructor(gravity = .5, timeStep = 8){
     this.bodies = [];
