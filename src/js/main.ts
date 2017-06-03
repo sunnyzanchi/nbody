@@ -14,10 +14,43 @@ const canvas: HTMLCanvasElement = document.querySelector('canvas');
 const {width, height} = canvas;
 const ctx = canvas.getContext('2d');
 
+var last = new Vector;
+var current = new Vector;
+var held = false;
+canvas.addEventListener('mousedown', function({x, y}){
+  last = new Vector(x, y);
+  held = true;
+});
+
+canvas.addEventListener('mousemove', function({x, y}){
+  current = new Vector(x, y);
+})
+
+canvas.addEventListener('mouseup', function({x, y}){
+  const position = new Vector(x, y);
+  held = false;
+
+  universe.bodies.push(new Planet({
+    color: '#f99',
+    radius: 8,
+    position,
+    velocity: position.sub(last).mul(.5).reverse()
+  }));
+});
+
 const render = function render(){
   ctx.clearRect(0, 0, width, height);
   for(let body of universe.bodies){
     body.draw(ctx);
+  }
+
+  // draw force line for new body
+  if(held){
+    ctx.strokeStyle = '#fff';
+    ctx.beginPath();
+    ctx.moveTo(last.x, last.y);
+    ctx.lineTo(current.x, current.y);
+    ctx.stroke();
   }
 
   universe.doPhysics();
