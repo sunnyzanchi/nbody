@@ -7,7 +7,7 @@
   "author": "Zanchi",
   "scripts": {
     "build": "webpack && http-server -p 3000 ./public",
-    "perf": "node .\node_modules\ts-node/dist/bin.js -r tsconfig-paths/register ./test/perf.ts"
+    "perf": "node ./node_modules/ts-node/dist/bin.js -r tsconfig-paths/register ./test/perf.ts"
   },
   "dependencies": {
     "ts-loader": "^2.1.0",
