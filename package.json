@@ -7,7 +7,8 @@
   "author": "Zanchi",
   "scripts": {
     "build": "webpack",
-    "dev": "cross-env NODE_ENV=dev webpack-dev-server --progress"
+    "dev": "cross-env NODE_ENV=dev webpack-dev-server --progress",
+    "perf": "node ./node_modules/ts-node/dist/bin.js -r tsconfig-paths/register ./test/perf.ts"
   },
   "dependencies": {
     "ts-loader": "^2.1.0",
@@ -15,7 +16,14 @@
     "webpack": "^3.7.1"
   },
   "devDependencies": {
+    "@types/chai": "^4.0.0",
+    "@types/mocha": "^2.2.41",
+    "@types/node": "^8.0.3",
+    "chai": "^4.0.2",
     "cross-env": "^5.1.0",
+    "mocha": "^3.4.2",
+    "ts-node": "^3.0.6",
+    "tsconfig-paths": "^2.2.0",
     "webpack-dev-server": "^2.9.2"
   }
 }

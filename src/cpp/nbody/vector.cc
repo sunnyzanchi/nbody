@@ -4,7 +4,7 @@
 
 namespace nbody {
 
-// NOTE: This adaption of the Vector class is excessively function for 
+// NOTE: This adaption of the Vector class is excessively functional for 
 // the purposes of a high-performance n-body simulation. This is only 
 // a provisional starting point.
 
