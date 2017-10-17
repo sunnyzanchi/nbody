@@ -8,7 +8,8 @@
   "scripts": {
     "build": "webpack",
     "dev": "cross-env NODE_ENV=dev webpack-dev-server --progress",
-    "perf": "node ./node_modules/ts-node/dist/bin.js -r tsconfig-paths/register ./test/perf.ts"
+    "perf": "node ./node_modules/ts-node/dist/bin.js -r tsconfig-paths/register ./test/perf.ts",
+    "test": "mocha -r ts-node/register ./test/*.test.*"
   },
   "dependencies": {
     "ts-loader": "^2.1.0",
