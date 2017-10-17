@@ -1,6 +1,14 @@
 const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
+  devServer: {
+    contentBase: './public',
+    hot: true,
+    open: true,
+    port: 3000,
+    publicPath: '/js'
+  },
   entry: './src/js/main.ts',
   output: {
     path: path.join(__dirname, 'public/js'),
@@ -19,5 +27,8 @@ module.exports = {
         test: /\.tsx?$/, loader: 'ts-loader'
       }
     ]
-  }
+  },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin()
+  ]
 };

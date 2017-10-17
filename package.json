@@ -6,10 +6,16 @@
   "repository": "https://github.com/zanchi/nbody.git",
   "author": "Zanchi",
   "scripts": {
-    "build": "webpack && http-server -p 3000 ./public"
+    "build": "webpack",
+    "dev": "cross-env NODE_ENV=dev webpack-dev-server --progress"
   },
   "dependencies": {
     "ts-loader": "^2.1.0",
-    "typescript": "^2.3.3"
+    "typescript": "^2.3.3",
+    "webpack": "^3.7.1"
+  },
+  "devDependencies": {
+    "cross-env": "^5.1.0",
+    "webpack-dev-server": "^2.9.2"
   }
 }
