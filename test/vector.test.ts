@@ -36,7 +36,7 @@ describe('Vector', function(){
 
   describe('add', function(){
     const addend = 7;
-    const b = a.add(7);
+    const b = a.add(addend);
 
     const c = new Vector(4, 10);
     const d = a.add(c);
@@ -80,6 +80,15 @@ describe('Vector', function(){
     it('should return a copy', function(){
       expect(b.x).to.equal(a.x);
       expect(b.y).to.equal(a.y);
+    });
+  });
+
+  describe('cross', function(){
+    const b = new Vector(3, 4);
+    const c = a.cross(b);
+
+    it('should return a finite number', function(){
+      expect(c).to.be['finite'];
     });
   });
 
