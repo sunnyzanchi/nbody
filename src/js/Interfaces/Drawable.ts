@@ -1,5 +1,8 @@
+import Vector from 'Classes/Vector';
+
 interface Drawable{
-  draw(ctx: CanvasRenderingContext2D): void;
+  drawType: symbol;
+  position: Vector;
 }
 
 export default Drawable;

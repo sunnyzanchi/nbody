@@ -4,6 +4,7 @@ import Drawable from 'Interfaces/Drawable';
 abstract class Body implements Drawable{
   acceleration: Vector;
   color: string;
+  drawType: symbol;
   mass: number;
   position: Vector;
   radius: number;

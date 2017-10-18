@@ -92,6 +92,15 @@ describe('Vector', function(){
     });
   });
 
+  describe('dist', function(){
+    const b = new Vector(3, 4);
+    const c = a.dist(b);
+
+    it('should return a finite number', function(){
+      expect(c).to.be['finite'];
+    });
+  });
+
   describe('mul', function(){
     const multiplier = 2;
     const b = a.mul(multiplier);

@@ -3,6 +3,7 @@ import Vector from 'Classes/Vector';
 import Planet from 'Classes/Planet';
 import Star from 'Classes/Star';
 import Universe from 'Classes/Universe';
+import draw from 'Classes/CanvasRenderer';
 
 const universe = new Universe(.5, 8);
 universe.bodies.push(new Star({position: new Vector(400, 400), radius: 80, mass: 300000}));
@@ -41,7 +42,7 @@ canvas.addEventListener('mouseup', function({x, y}){
 const render = function render(){
   ctx.clearRect(0, 0, width, height);
   for(let body of universe.bodies){
-    body.draw(ctx);
+    draw(ctx, body);
   }
 
   // draw force line for new body

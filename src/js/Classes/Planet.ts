@@ -1,17 +1,12 @@
 import Body from 'Classes/Body';
 import Drawable from 'Interfaces/Drawable';
+import { Planet as drawType} from '../drawTypes';
 
-export default class Planet extends Body{
+export default class Planet extends Body implements Drawable{
+  drawType: symbol;
+
   constructor(opts){
     super(opts);
-  }
-
-  draw(ctx: CanvasRenderingContext2D){
-    const {position: {x, y}, radius: r, color} = this;
-
-    ctx.beginPath();
-    ctx.ellipse(x, y, r, r, 0, 0, 2*Math.PI);
-    ctx.fillStyle = color;
-    ctx.fill();
+    this.drawType = drawType;
   }
 }
