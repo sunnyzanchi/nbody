@@ -11,10 +11,6 @@
         "noImplicitAny": false,
         "noImplicitUseStrict": false,
         "noLib": false,
-        "paths": {
-          "Classes/*": ["Classes/*"],
-          "Interfaces/*": ["Interfaces/*"]
-        },
         "preserveConstEnums": true,
         "removeComments": true,
         "suppressImplicitAnyIndexErrors": true,

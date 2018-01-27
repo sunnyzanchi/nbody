@@ -1,9 +1,9 @@
-import Body from 'Classes/Body';
-import Vector from 'Classes/Vector';
-import Planet from 'Classes/Planet';
-import Star from 'Classes/Star';
-import Universe from 'Classes/Universe';
-import draw from 'Classes/CanvasRenderer';
+import Body from './Classes/Body';
+import Vector from './Classes/Vector';
+import Planet from './Classes/Planet';
+import Star from './Classes/Star';
+import Universe from './Classes/Universe';
+import draw from './Classes/CanvasRenderer';
 
 const universe = new Universe(.5, 8);
 universe.bodies.push(new Star({position: new Vector(400, 400), radius: 80, mass: 300000}));

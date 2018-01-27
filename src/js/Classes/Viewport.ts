@@ -1,4 +1,4 @@
-import Point from 'Interfaces/Point';
+import Point from '../Interfaces/Point';
 
 class Viewport implements Point{
   private holding: boolean;

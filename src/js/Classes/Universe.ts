@@ -1,4 +1,4 @@
-import Body from 'Classes/Body';
+import Body from './Body';
 
 export default class Universe{
   bodies: Body[];

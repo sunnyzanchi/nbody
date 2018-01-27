@@ -1,4 +1,4 @@
-import Vector from 'Classes/Vector';
+import Vector from './Classes/Vector';
 
 export default function getRadialPositions(sections: number, {x, y}: Vector, radius: number): Vector[]{
   const {PI, cos, sin} = Math;

@@ -1,5 +1,5 @@
-import Vector from 'Classes/Vector';
-import Drawable from 'Interfaces/Drawable';
+import Vector from './Vector';
+import Drawable from '../Interfaces/Drawable';
 
 abstract class Body implements Drawable{
   acceleration: Vector;

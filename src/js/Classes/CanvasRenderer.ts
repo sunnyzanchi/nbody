@@ -1,7 +1,7 @@
-import Body from 'Classes/Body';
-import Drawable from 'Interfaces/Drawable';
-import Planet from 'Classes/Planet';
-import Star from 'Classes/Star';
+import Body from './Body';
+import Drawable from '../Interfaces/Drawable';
+import Planet from './Planet';
+import Star from './Star';
 import {
   Planet as PlanetDrawType,
   Star as StarDrawType
