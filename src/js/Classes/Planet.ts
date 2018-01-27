@@ -1,5 +1,5 @@
-import Body from 'Classes/Body';
-import Drawable from 'Interfaces/Drawable';
+import Body from './Body';
+import Drawable from '../Interfaces/Drawable';
 import { Planet as drawType} from '../drawTypes';
 
 export default class Planet extends Body implements Drawable{

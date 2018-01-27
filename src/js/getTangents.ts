@@ -1,5 +1,5 @@
 // https://en.wikipedia.org/wiki/Tangent_lines_to_circles#Outer_tangent
-import Point from 'Interfaces/Point';
+import Point from './Interfaces/Point';
 
 interface CircleConfig{
   x: number;

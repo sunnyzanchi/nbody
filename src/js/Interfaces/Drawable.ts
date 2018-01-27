@@ -1,4 +1,4 @@
-import Vector from 'Classes/Vector';
+import Vector from '../Classes/Vector';
 
 interface Drawable{
   drawType: symbol;
