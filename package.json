@@ -6,9 +6,8 @@
   "repository": "https://github.com/zanchi/nbody.git",
   "author": "Zanchi",
   "scripts": {
-    "build": "webpack",
-    "dev": "cross-env NODE_ENV=dev webpack-dev-server --progress",
     "perf": "node ./node_modules/ts-node/dist/bin.js -r tsconfig-paths/register ./test/perf.ts",
+    "start": "cross-env NODE_ENV=dev parcel -p 3000 ./src/index.html",
     "test": "mocha -r ts-node/register ./test/*.test.*"
   },
   "dependencies": {
