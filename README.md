@@ -3,4 +3,4 @@ WIP two dimensional [N-body simulation](https://en.wikipedia.org/wiki/N-body_sim
 
 The goal is to procedurally generate a stable n-body system and reliably run the simulation at 60fps in the browser with as many bodies as possible. TypeScript compiled to plain JavaScript should be the slowest solution. Potentially faster options are compiling C++ code into asm.js *or* coding the simulation in GLSL and using WebGL to leverage the GPU.  
 
-To build the TypeScript version: `yarn dev`
+To start the TypeScript version with hot reload run `yarn start`
