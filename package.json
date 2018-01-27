@@ -12,9 +12,8 @@
     "test": "mocha -r ts-node/register ./test/*.test.*"
   },
   "dependencies": {
-    "ts-loader": "^2.1.0",
-    "typescript": "^2.3.3",
-    "webpack": "^3.7.1"
+    "parcel-bundler": "^1.5.1",
+    "typescript": "^2.3.3"
   },
   "devDependencies": {
     "@types/chai": "^4.0.4",
