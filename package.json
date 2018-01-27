@@ -23,6 +23,8 @@
     "mocha": "^4.0.1",
     "ts-node": "^3.0.6",
     "tsconfig-paths": "^2.2.0",
+    "tslint": "^5.9.1",
+    "tslint-config-airbnb": "^5.5.0",
     "webpack-dev-server": "^2.9.2"
   }
 }
