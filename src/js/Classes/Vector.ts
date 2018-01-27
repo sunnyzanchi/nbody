@@ -1,94 +1,92 @@
 import Point from '../Interfaces/Point';
 
-export default class Vector implements Point{
-  x: number
-  y: number
+export default class Vector implements Point {
+  x: number;
+  y: number;
 
-  constructor(x: number|[number, number] = 0, y = 0){
-    if(Array.isArray(x)){
+  constructor(x: number|[number, number] = 0, y = 0) {
+    if (Array.isArray(x)) {
       this.x = x[0];
-      this.y = x[1]
-    }
-    else{
+      this.y = x[1];
+    } else {
       this.x = x;
       this.y = y;
     }
   }
 
-  abs(): Vector{
+  abs(): Vector {
     return new Vector(Math.abs(this.x), Math.abs(this.y));
   }
 
-  add(add: Vector|number): Vector{
-    if(typeof add === 'number')
+  add(add: Vector|number): Vector {
+    if (typeof add === 'number')
       return new Vector(this.x + add, this.y + add);
-    else
-      return new Vector(this.x + add.x, this.y + add.y);
+
+    return new Vector(this.x + add.x, this.y + add.y);
   }
 
-  clone(): Vector{
+  clone(): Vector {
     return new Vector(this.x, this.y);
   }
 
-  cross(vector: Vector): number{
+  cross(vector: Vector): number {
     return this.x * vector.y - this.y * vector.x;
   }
 
-  dist(vector: Vector): number{
+  dist(vector: Vector): number {
     return Math.sqrt(this.distSq(vector));
   }
 
-  distSq(vector: Vector): number{
+  distSq(vector: Vector): number {
     const dx = this.x - vector.x;
     const dy = this.y - vector.y;
 
     return dx * dx + dy * dy;
   }
 
-  div(div: Vector|number): Vector{
-    if(typeof div === 'number')
+  div(div: Vector|number): Vector {
+    if (typeof div === 'number')
       return new Vector(this.x / div, this.y / div);
-    else
-      return new Vector(this.x / div.x, this.y / div.y);
+
+    return new Vector(this.x / div.x, this.y / div.y);
   }
 
-  dot(vector: Vector): number{
+  dot(vector: Vector): number {
     return this.x * vector.x + this.y * vector.y;
   }
 
-  equals(vector: Vector): boolean{
+  equals(vector: Vector): boolean {
     return vector.x === this.x && vector.y === this.y;
   }
 
-  length(): number{
+  length(): number {
     return Math.sqrt(this.dot(this));
   }
 
-  lengthSq(): number{
+  lengthSq(): number {
     return this.dot(this);
   }
 
-  lerp(vector: Vector, s: number): Vector{
+  lerp(vector: Vector, s: number): Vector {
     return new Vector(this.x + (vector.x - this.x) * s, this.y + (vector.y - this.y) * s);
   }
 
-  mul(mul: Vector|number): Vector{
-    if(typeof mul === 'number')
+  mul(mul: Vector|number): Vector {
+    if (typeof mul === 'number')
       return new Vector(this.x * mul, this.y * mul);
-    else
-      return new Vector(this.x * mul.x, this.y * mul.y);
+
+    return new Vector(this.x * mul.x, this.y * mul.y);
   }
 
-  normalize(): Vector{
+  normalize(): Vector {
     return this.div(this.length());
   }
 
-  set(set: Vector|number): Vector{
-    if(typeof set === 'number'){
+  set(set: Vector|number): Vector {
+    if (typeof set === 'number') {
       this.x = set;
       this.y = set;
-    }
-    else{
+    } else {
       this.x = set.x;
       this.y = set.y;
     }
@@ -96,25 +94,25 @@ export default class Vector implements Point{
     return this;
   }
 
-  setLength(length: number): Vector{
+  setLength(length: number): Vector {
     return this.normalize().mul(length);
   }
 
-  sub(sub: Vector|number): Vector{
-    if(typeof sub === 'number')
+  sub(sub: Vector|number): Vector {
+    if (typeof sub === 'number')
       return new Vector(this.x - sub, this.y - sub);
-    else
-      return new Vector(this.x - sub.x, this.y - sub.y);
+
+    return new Vector(this.x - sub.x, this.y - sub.y);
   }
 
-  truncate(max: number): Vector{
-    if(this.length() > max)
+  truncate(max: number): Vector {
+    if (this.length() > max)
       return this.normalize().mul(max);
-    else
-      return this;
+
+    return this;
   }
 
-  reverse(): Vector{
+  reverse(): Vector {
     return this.mul(-1);
   }
 }

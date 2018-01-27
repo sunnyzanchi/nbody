@@ -1,6 +1,6 @@
 import Vector from '../Classes/Vector';
 
-interface Drawable{
+interface Drawable {
   drawType: symbol;
   position: Vector;
 }
