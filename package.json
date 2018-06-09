@@ -11,7 +11,7 @@
     "test": "mocha -r ts-node/register ./test/*.test.*"
   },
   "dependencies": {
-    "parcel-bundler": "^1.5.1",
+    "parcel-bundler": "^1.8.1",
     "typescript": "^2.3.3"
   },
   "devDependencies": {
